@@ -1,0 +1,19 @@
+tenant: tenant-a
+env: prod
+region: us-east-1
+
+services:
+  vpc:
+    enabled: true
+    config:
+      vpc_cidr: "10.20.0.0/16"
+
+  eks:
+    enabled: true
+    config:
+      version: "1.29"
+      node_groups:
+        default:
+          instance_type: "m5.large"
+          min: 3
+          max: 6
