@@ -1,0 +1,71 @@
+schemaVersion: v1
+
+# ------------------------
+# Global / mandatory fields
+# ------------------------
+tenant:
+  type: string
+  required: true
+  description: Tenant / Business Unit name
+
+env:
+  type: string
+  required: true
+  allowed:
+    - dev
+    - test
+    - prod
+
+region:
+  type: string
+  required: true
+  description: AWS region for deployment
+
+# ------------------------
+# Services catalog (Phase 1)
+# ------------------------
+services:
+
+  vpc:
+    enabled:
+      type: boolean
+      required: true
+    config:
+      vpc_cidr:
+        type: string
+        required: true
+        description: CIDR block for VPC
+
+  eks:
+    enabled:
+      type: boolean
+      required: true
+
+    config:
+      version:
+        type: string
+        required: false
+        allowed:
+          - "1.28"
+          - "1.29"
+        description: Kubernetes version for EKS
+
+      node_groups:
+        type: map
+        required: false
+        description: EKS managed node groups
+
+        schema:
+          instance_type:
+            type: string
+            required: true
+
+          min:
+            type: number
+            required: true
+            min: 1
+
+          max:
+            type: number
+            required: true
+            min: 1
