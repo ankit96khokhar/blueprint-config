@@ -20,11 +20,22 @@ region:
   type: string
   required: true
   description: AWS region for deployment
+  allowed:
+    - us-east-1
+    - ap-south-1
+
+description:
+  type: string
+  required: false
+  description: dsdsfsfsd
 
 # ------------------------
 # Services catalog (Phase 1)
 # ------------------------
 services:
+  # type: string
+  # required: true
+  # description: AWS region for deployment
 
   vpc:
     enabled:
