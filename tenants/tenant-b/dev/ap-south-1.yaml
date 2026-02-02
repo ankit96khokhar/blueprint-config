@@ -1,4 +1,4 @@
-tenant: tenant-a
+tenant: tenant-b
 env: dev
 region: ap-south-1
 admin_principal_arn: "arn:aws:iam::907793002691:user/admin"
