@@ -12,23 +12,23 @@ services:
         vpc_cidr: "10.10.0.0/16"
       app:
         vpc_cidr: "10.20.0.0/16"
-        
+
   eks:
     enabled: true
     config:
-      cluster_name: tenant-a
-      version: "1.29"
-      node_groups:
-        default:
-          instance_types:
-            - c7i-flex.large
-          min: 1
-          max: 2
-          desired: 2
+      tenant-a:
+        version: "1.29"
+        node_groups:
+          default:
+            instance_types:
+              - c7i-flex.large
+            min: 1
+            max: 2
+            desired: 2
 
-        spot:
-          instance_types:
-            - t3.micro
-          min: 1
-          max: 2
-          desired: 2
+          spot:
+            instance_types:
+              - t3.micro
+            min: 1
+            max: 2
+            desired: 2

@@ -69,40 +69,40 @@ services:
       required: true
 
     config:
-      cluster_name:
-        type: string
-        required: true
-        description: Eks cluster name
+      type: map
+      required: true
+      description: Multiple VPC definitions
 
-      version:
-        type: string
-        required: false
-        allowed:
-          - "1.28"
-          - "1.29"
-        description: Kubernetes version for EKS
+      schema:
+        version:
+          type: string
+          required: false
+          allowed:
+            - "1.28"
+            - "1.29"
+          description: Kubernetes version for EKS
 
-      node_groups:
-        type: map
-        required: false
-        description: EKS managed node groups
+        node_groups:
+          type: map
+          required: false
+          description: EKS managed node groups
 
-        schema:
-          instance_types:
-            type: list
-            required: true
+          schema:
+            instance_types:
+              type: list
+              required: true
 
-          min:
-            type: number
-            required: true
-            min: 1
+            min:
+              type: number
+              required: true
+              min: 1
 
-          max:
-            type: number
-            required: true
-            min: 1
+            max:
+              type: number
+              required: true
+              min: 1
 
-          desired:
-            type: number
-            required: true
-            min: 1
+            desired:
+              type: number
+              required: true
+              min: 1
