@@ -74,6 +74,11 @@ services:
       description: Multiple VPC definitions
 
       schema:
+        vpc_name:
+          type: string
+          required: true
+          description: Name of VPC to attach this EKS cluster to
+          
         version:
           type: string
           required: false
