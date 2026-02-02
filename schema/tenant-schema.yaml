@@ -24,6 +24,17 @@ region:
     - us-east-1
     - ap-south-1
 
+admin_principal_arn:
+  type: string
+  required: true
+  description: admin_principal_arn
+
+account_id:
+  type: string
+  required: true
+  description: account_id
+
+
 description:
   type: string
   required: false
