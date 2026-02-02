@@ -16,7 +16,8 @@ services:
   eks:
     enabled: true
     config:
-      tenant-a:
+      tenant-a-cluster1:
+        vpc_name: "shared"
         version: "1.29"
         node_groups:
           default:
