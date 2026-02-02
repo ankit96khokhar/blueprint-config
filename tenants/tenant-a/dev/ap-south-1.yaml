@@ -8,8 +8,11 @@ services:
   vpc:
     enabled: true
     config:
-      vpc_cidr: "10.10.0.0/16"
-
+      shared:
+        vpc_cidr: "10.10.0.0/16"
+      app:
+        vpc_cidr: "10.20.0.0/16"
+        
   eks:
     enabled: true
     config:

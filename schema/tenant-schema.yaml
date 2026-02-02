@@ -53,10 +53,15 @@ services:
       type: boolean
       required: true
     config:
-      vpc_cidr:
-        type: string
-        required: true
-        description: CIDR block for VPC
+      type: map
+      required: true
+      description: Multiple VPC definitions
+
+      schema:
+        vpc_cidr:
+          type: string
+          required: true
+          description: CIDR block for VPC
 
   eks:
     enabled:
