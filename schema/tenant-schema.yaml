@@ -53,6 +53,11 @@ services:
       required: true
 
     config:
+      cluster_name:
+        type: string
+        required: true
+        description: Eks cluster name
+
       version:
         type: string
         required: false
