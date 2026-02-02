@@ -83,8 +83,8 @@ services:
         description: EKS managed node groups
 
         schema:
-          instance_type:
-            type: string
+          instance_types:
+            type: list
             required: true
 
           min:
@@ -93,6 +93,11 @@ services:
             min: 1
 
           max:
+            type: number
+            required: true
+            min: 1
+
+          desired:
             type: number
             required: true
             min: 1
