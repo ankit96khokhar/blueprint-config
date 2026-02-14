@@ -111,3 +111,32 @@ services:
               type: number
               required: true
               min: 1
+
+  dynamodb:
+    enabled:
+      type: boolean
+      required: true
+
+    config:
+      type: map
+      required: true
+      description: DynamoDB tables to create
+
+      schema:
+        table_name:
+          type: string
+          required: true
+          description: Name of the DynamoDB table
+
+        billing_mode:
+          type: string
+          required: false
+          allowed:
+            - "PAY_PER_REQUEST"
+            - "PROVISIONED"
+          description: DynamoDB billing mode
+
+        point_in_time_recovery:
+          type: boolean
+          required: false
+          description: Enable point-in-time recovery              
