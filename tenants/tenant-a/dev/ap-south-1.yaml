@@ -5,13 +5,21 @@ admin_principal_arn: "arn:aws:iam::907793002691:user/admin"
 account_id: "907793002691"
 
 services:
-  vpc:
-    enabled: true
-    config:
-      shared:
-        vpc_cidr: "10.10.0.0/16"
+  # vpc:
+  #   enabled: true
+  #   config:
+  #     shared:
+  #       vpc_cidr: "10.10.0.0/16"
       # app:
       #   vpc_cidr: "10.20.0.0/16"
+
+  dynamodb:
+    enabled: true
+    config:
+      fleet_upgrade:
+        table_name: "eks_fleet_upgrade"
+        billing_mode: "PAY_PER_REQUEST"
+
 
   # eks:
   #   enabled: true
