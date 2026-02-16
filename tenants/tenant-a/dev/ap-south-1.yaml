@@ -10,8 +10,8 @@ services:
     config:
       shared:
         vpc_cidr: "10.10.0.0/16"
-      app:
-        vpc_cidr: "10.20.0.0/16"
+      # app:
+      #   vpc_cidr: "10.20.0.0/16"
 
   # dynamodb:
   #   enabled: true
