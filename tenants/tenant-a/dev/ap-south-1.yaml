@@ -1,8 +1,15 @@
 tenant: tenant-a
 env: dev
 region: ap-south-1
-admin_principal_arn: "arn:aws:iam::907793002691:user/admin"
 account_id: "907793002691"
+
+admin_principal_arn: "arn:aws:iam::907793002691:user/admin"
+
+jenkins:
+  url: "http://jenkins.example.com:8080"
+  user: "admin"
+  token: "115e66b5ce422f3c24f5b6ce220456e52a"
+  job_name: "terraform-cluster-executor"
 
 services:
   vpc:
@@ -13,21 +20,18 @@ services:
       # app:
       #   vpc_cidr: "10.20.0.0/16"
 
-  # dynamodb:
-  #   enabled: true
-  #   config:
-  #     fleet_upgrade:
-  #       table_name: "eks_fleet_upgrade"
-  #       billing_mode: "PAY_PER_REQUEST"
-
-
   eks:
     enabled: true
     config:
-      tenant-a-cluster1:
-        fleet: cpu      
-        vpc_name: "shared"
+
+      # -------------------
+      # Canary Cluster
+      # -------------------
+      dev-cpu-1:
+        fleet: cpu
+        is_canary: true
         version: "1.29"
+        vpc_name: "shared"
         node_groups:
           default:
             instance_types:
@@ -36,9 +40,65 @@ services:
             max: 2
             desired: 1
 
-  #         spot:
-  #           instance_types:
-  #             - t3.micro
-  #           min: 1
-  #           max: 2
-  #           desired: 2
+      # -------------------
+      # Wave Clusters
+      # -------------------
+      dev-cpu-2:
+        fleet: cpu
+        version: "1.29"
+        vpc_name: "shared"
+        node_groups:
+          default:
+            instance_types:
+              - c7i-flex.large
+            min: 1
+            max: 2
+            desired: 1
+
+      dev-cpu-3:
+        fleet: cpu
+        version: "1.29"
+        vpc_name: "shared"
+        node_groups:
+          default:
+            instance_types:
+              - c7i-flex.large
+            min: 1
+            max: 2
+            desired: 1
+
+      dev-cpu-4:
+        fleet: cpu
+        version: "1.29"
+        vpc_name: "shared"
+        node_groups:
+          default:
+            instance_types:
+              - c7i-flex.large
+            min: 1
+            max: 2
+            desired: 1
+
+      dev-cpu-5:
+        fleet: cpu
+        version: "1.29"
+        vpc_name: "shared"
+        node_groups:
+          default:
+            instance_types:
+              - c7i-flex.large
+            min: 1
+            max: 2
+            desired: 1
+
+      dev-cpu-6:
+        fleet: cpu
+        version: "1.29"
+        vpc_name: "shared"
+        node_groups:
+          default:
+            instance_types:
+              - c7i-flex.large
+            min: 1
+            max: 2
+            desired: 1
