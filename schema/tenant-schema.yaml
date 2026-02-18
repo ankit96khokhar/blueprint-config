@@ -16,6 +16,26 @@ env:
     - test
     - prod
 
+jenkins:
+  required: false
+  type: map
+  schema:
+    url:
+      type: string
+      required: true
+
+    user:
+      type: string
+      required: true
+
+    token:
+      type: string
+      required: true
+
+    job_name:
+      type: string
+      required: true
+
 region:
   type: string
   required: true
