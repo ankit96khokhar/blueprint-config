@@ -83,54 +83,102 @@ services:
           required: true
           description: CIDR block for VPC
 
-  eks:
-    enabled:
-      type: boolean
-      required: true
+  # eks:
+  #   enabled:
+  #     type: boolean
+  #     required: true
 
-    config:
-      type: map
-      required: true
-      description: Multiple VPC definitions
+  #   config:
+  #     type: map
+  #     required: true
+  #     description: Multiple VPC definitions
 
-      schema:
-        vpc_name:
-          type: string
-          required: true
-          description: Name of VPC to attach this EKS cluster to
+  #     schema:
+  #       vpc_name:
+  #         type: string
+  #         required: true
+  #         description: Name of VPC to attach this EKS cluster to
           
-        version:
-          type: string
-          required: false
-          allowed:
-            - "1.28"
-            - "1.29"
-          description: Kubernetes version for EKS
+  #       version:
+  #         type: string
+  #         required: false
+  #         allowed:
+  #           - "1.28"
+  #           - "1.29"
+  #         description: Kubernetes version for EKS
 
-        node_groups:
-          type: map
-          required: false
-          description: EKS managed node groups
+  #       node_groups:
+  #         type: map
+  #         required: false
+  #         description: EKS managed node groups
 
-          schema:
-            instance_types:
-              type: list
-              required: true
+  #         schema:
+  #           instance_types:
+  #             type: list
+  #             required: true
 
-            min:
-              type: number
-              required: true
-              min: 1
+  #           min:
+  #             type: number
+  #             required: true
+  #             min: 1
 
-            max:
-              type: number
-              required: true
-              min: 1
+  #           max:
+  #             type: number
+  #             required: true
+  #             min: 1
 
-            desired:
-              type: number
-              required: true
-              min: 1
+  #           desired:
+  #             type: number
+  #             required: true
+  #             min: 1
+
+  eks:
+    type: map
+    required: false
+    schema:
+      enabled:
+        type: boolean
+        required: true
+
+      config:
+        type: map
+        required: false
+        schema:
+          fleet:
+            type: string
+            required: true
+
+          version:
+            type: string
+            required: true
+
+          is_canary:
+            type: boolean
+            required: false
+
+          vpc_name:
+            type: string
+            required: false
+
+          node_groups:
+            type: map
+            required: false
+            schema:
+              instance_types:
+                type: map
+                required: false
+
+              min:
+                type: number
+                required: false
+
+              max:
+                type: number
+                required: false
+
+              desired:
+                type: number
+                required: false
 
   dynamodb:
     enabled:
