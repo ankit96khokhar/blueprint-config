@@ -25,6 +25,7 @@ services:
     enabled: true
     config:
       tenant-a-cluster1:
+        fleet: cpu      
         vpc_name: "shared"
         version: "1.29"
         node_groups:
