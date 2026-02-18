@@ -6,7 +6,7 @@ account_id: "907793002691"
 admin_principal_arn: "arn:aws:iam::907793002691:user/admin"
 
 jenkins:
-  url: "http://jenkins.example.com:8080"
+  url: "http://jenkins:8080"
   user: "admin"
   token: "115e66b5ce422f3c24f5b6ce220456e52a"
   job_name: "terraform-cluster-executor"
